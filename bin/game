@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(File.dirname(__FILE__)), 'lib')
+
+require 'game_of_life'
+include GameOfLife
+
+prng = Random.new
+
+world = World.new
+
+(-20..20).each do |x|
+  (-20..20).each do |y|
+    world.animate Coordinate.new(x, y) if prng.rand > 0.5
+  end
+end
+
+world.animate Coordinate.new(-1, 0)
+world.animate Coordinate.new(0, 0)
+world.animate Coordinate.new(1, 0)
+game = Game.new(world)
+
+game.play
