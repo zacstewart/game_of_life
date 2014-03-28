@@ -34,17 +34,15 @@ module GameOfLife
       next_world
     end
 
-    def to_s
+    def as_string(top, right, bottom, left)
       string = ''
-      (-50..50).each do |x|
-        string << '|'
-        (-100..100).each do |y|
+      (top..bottom).each do |x|
+        (left..right).each do |y|
           string << self[Coordinate.new(x, y)].to_s
           string << '.'
         end
-        string << "|\n"
+        string << "\n"
       end
-      string << '-' * 404
       string
     end
 
