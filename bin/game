@@ -15,9 +15,5 @@ world = World.new
   end
 end
 
-world.animate Coordinate.new(-1, 0)
-world.animate Coordinate.new(0, 0)
-world.animate Coordinate.new(1, 0)
 game = Game.new(world)
-
 game.play
